@@ -7,11 +7,37 @@
         <meta name="keywords" content="Virtual Reality, Aframe, Taj Mahal, India, Seven wonders of the world">
         <meta name="author" content="Vivek">
         <meta name="credit" content="Enter Inventive Studio, Don Carson">
-        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script> 
+        <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+        <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script>
+        <script src="./ocean.js"></script>
     </head>
     <body>
-        <a-scene>
-            
+        <a-scene background="color:black">
+            <a-entity star-system="radius:200; color:white; count:5000;" opacity=""></a-entity>
+            <a-light type="directional" intensity="0.3" color="#6909b3" position="100 3 -20" light="castShadow:true;"></a-light>
+            <a-light type="directional" intensity="0" color="#15042b" position="10 2 -20" light="castShadow:true;"></a-light>
+            <a-light type="ambient" intensity="0" color="#6909b3"></a-light>
+            <a-light type="ambient" intensity="0.1" color="#15042b"></a-light>
+            <a-assets>
+                <a-asset-item id="TAJ" src="3d/taj.glb"></a-asset-item>
+                <a-asset-item id="Fou" src="3d/fountain.glb"></a-asset-item>
+                <a-asset-item id="tree1" src="3d/tree.glb"></a-asset-item>
+            </a-assets>
+            <a-entity id="scene" shadow="">
+                <a-gltf-model shadow id="Tajmahal"color="#0ec4e8"src="#TAJ" scale="0.01 0.01 0.01" position="0 -6 -35" ></a-gltf-model>
+                <a-gltf-model id="fountain" src="#Fou" scale="5 5 5" position="-0.2 -12.08445 -15"></a-gltf-model>
+                <a-gltf-model shadow id="Tree1" src="#tree1" scale="2 2 2" position="-4 -5 -20"></a-gltf-model>
+                <a-entity id="Tree2" gltf-model="3d/tree.glb" position="6.7785 -5 -20" scale="2 2 2"></a-entity>
+                <!--a-entity id="tree2" clone="#Tree1" position="4 -5 -20"></a-entity-->
+                <!--a-gltf-model id="Tree2" src="#tree2" scale="2 2 2" position="4 -5 -20"></a-gltf-model-->
+                <a-plane id="water" color="#0ec4e8" width="10" height="50" rotation="-90 0 0" position="0 -6.43749 -15"></a-plane>
+                <a-ocean id="water wave" width="50" height="50" depth="50" rotation="-90 0 0" position="0 -6.43749 -15" density="50" color="#0ec4e8"></a-ocean>
+                <a-plane id="plane1" color="#ffffff" width="27.5" height="60" rotation="-90 0 0" position="-17.3 -5.5 -20"></a-plane>
+                <a-plane id="plane1" color="#ffffff" width="27.5" height="60" rotation="-90 0 0" position="17.3 -5.5 -20"></a-plane>
+                <a-plane id="grass left" color="#025717" width="27.5" height="60" rotation="-90 0 0" position="-20.3 -5.49 -20"></a-plane>
+                <a-plane id="grass right" color="#025717" width="27.5" height="60" rotation="-90 0 0" position="20.3 -5.49 -20"></a-plane>
+                <a-sky radius="30" color="#001e36" position="0 0 -20" opacity="0.7"></a-sky>
+            </a-entity>
         </a-scene>
     </body>
 </html>
